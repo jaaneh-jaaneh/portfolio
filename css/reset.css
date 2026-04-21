@@ -1,0 +1,60 @@
+/* ============================================
+   RESET.CSS
+   Remet à zéro les styles par défaut
+   des navigateurs pour partir d'une base
+   identique partout (Chrome, Firefox, Safari)
+   ============================================ */
+
+/* 1. Tout le monde part avec box-sizing: border-box
+      = le padding et border sont INCLUS dans la largeur
+      Sans ça : un élément de 200px + 20px de padding = 220px (surprise!)
+      Avec ça : un élément de 200px + 20px de padding = 200px (logique) */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Comportement du scroll fluide sur toute la page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 3. Le body prend toute la hauteur minimum de l'écran */
+body {
+  min-height: 100vh;
+  line-height: 1.5;        /* hauteur de ligne par défaut lisible */
+  -webkit-font-smoothing: antialiased; /* texte plus net sur Mac/Chrome */
+}
+
+/* 4. Images et vidéos : ne jamais dépasser leur conteneur */
+img, video {
+  max-width: 100%;
+  display: block;          /* supprime l'espace bizarre sous les images */
+}
+
+/* 5. Les listes n'ont pas de puces ni d'indentation */
+ul, ol {
+  list-style: none;
+}
+
+/* 6. Les liens n'ont pas de soulignement par défaut */
+a {
+  text-decoration: none;
+  color: inherit;          /* hérite la couleur du parent */
+}
+
+/* 7. Les boutons héritent de la police du body
+      (par défaut les boutons ont leur propre police bizarre) */
+button, input, textarea, select {
+  font: inherit;           /* hérite font-family, font-size, etc. du body */
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* 8. Les titres n'ont pas de gras forcé
+      (on le redéfinira nous-mêmes dans style.css) */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+}

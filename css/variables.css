@@ -1,0 +1,203 @@
+/* ============================================
+   VARIABLES.CSS
+   Ton design system — toutes les valeurs
+   réutilisables du portfolio au même endroit.
+   Tu modifies ici = tout le site se met à jour.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+
+  /* ── COULEURS PRINCIPALES ── */
+  --color-primary:        #6B4C35;   /* marron principal — boutons, accents */
+  --color-primary-light:  #c9a98a;   /* marron clair — hover, bordures */
+  --color-primary-dark:   #4a3324;   /* marron foncé — texte sur fond clair */
+
+  /* ── COULEURS DE FOND ── */
+  --color-bg:             #f2ede7;   /* beige — fond général de la page */
+  --color-bg-alt:         #ebe4db;   /* beige légèrement plus foncé — sections alternées */
+  --color-bg-dark:        #1e1a17;   /* marron très foncé — sections sombres (hero, skills) */
+  --color-bg-card:        #ffffff;   /* blanc — fond des cartes projets */
+
+  /* ── COULEURS DE TEXTE ── */
+  --color-text:           #3a3530;   /* gris marron foncé — texte principal */
+  --color-text-light:     #8c7b6e;   /* gris clair — texte secondaire, labels */
+  --color-text-white:     #f2ede7;   /* beige clair — texte sur fond sombre */
+
+  /* ── COULEURS UTILITAIRES ── */
+  --color-border:         #ddd5ca;   /* bordures subtiles */
+  --color-success:        #5a8a6a;   /* vert doux — message envoyé avec succès */
+  --color-error:          #a85555;   /* rouge doux — erreur formulaire */
+
+  /* ── TYPOGRAPHIE ── */
+  --font-heading:         'Playfair Display', Georgia, serif;   /* titres élégants */
+  --font-body:            'DM Sans', system-ui, sans-serif;     /* corps de texte lisible */
+
+  /* ── TAILLES DE POLICE ── */
+  --text-xs:    0.75rem;    /*  12px */
+  --text-sm:    0.875rem;   /*  14px */
+  --text-base:  1rem;       /*  16px */
+  --text-lg:    1.125rem;   /*  18px */
+  --text-xl:    1.25rem;    /*  20px */
+  --text-2xl:   1.5rem;     /*  24px */
+  --text-3xl:   2rem;       /*  32px */
+  --text-4xl:   2.5rem;     /*  40px */
+  --text-5xl:   3.5rem;     /*  56px */
+
+  /* ── ESPACEMENT ── */
+  /* Système basé sur 8px — facile à mémoriser et cohérent */
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+
+  /* ── BORDURES ── */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-full: 9999px;   /* cercle parfait ou pill */
+
+  /* ── OMBRES ── */
+  --shadow-sm:  0 2px 8px rgba(107, 76, 53, 0.08);
+  --shadow-md:  0 8px 24px rgba(107, 76, 53, 0.12);
+  --shadow-lg:  0 16px 48px rgba(107, 76, 53, 0.16);
+
+  /* ── TRANSITIONS ── */
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.25s ease;
+  --transition-slow:   0.4s ease;
+
+  /* ── LAYOUT ── */
+  --container-max:  900px;    /* largeur max du contenu centré */
+  --nav-height:     70px;     /* hauteur de la navbar */
+}
+
+
+/* ── HERO ─────────────────────────────────── */
+
+#hero {
+  min-height: 100vh;              /* prend toute la hauteur de l'écran */
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-dark);
+  padding: var(--nav-height) var(--space-8) 0; /* compense la navbar fixe */
+  position: relative;
+  overflow: hidden;               /* cache ce qui dépasse (blobs décoratifs) */
+}
+
+/* Blob décoratif en arrière-plan — cercle flou */
+#hero::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0.08;
+  filter: blur(80px);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;           /* ne bloque pas les clics */
+}
+
+/* Grille hero : texte à gauche, illustration à droite */
+#hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-12);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Badge "Étudiante en L3 MPI" */
+.hero-tag {
+  display: inline-block;
+  background: rgba(201, 169, 138, 0.15);
+  color: var(--color-primary-light);
+  border: 1px solid rgba(201, 169, 138, 0.3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  width: fit-content;
+}
+
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  color: var(--color-text-white);
+  line-height: 1.1;
+}
+
+/* Le texte animé en JS aura cette couleur */
+.hero-typed {
+  color: var(--color-primary-light);
+}
+
+/* Curseur clignotant après le texte tapé */
+.hero-typed::after {
+  content: '|';
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.hero-desc {
+  font-size: var(--text-lg);
+  color: rgba(242, 237, 231, 0.6);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Illustration côté droit */
+.hero-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Placeholder avant d'avoir une vraie illustration */
+.hero-avatar {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(201, 169, 138, 0.1);
+  border: 2px solid rgba(201, 169, 138, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  color: var(--color-primary-light);
+
+  /* Animation de flottement */
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
