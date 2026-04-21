@@ -13,7 +13,7 @@
 const typedEl = document.getElementById('typed-text');
 
 // Les textes qui vont défiler
-const words = ['développeuse', 'étudiante MPI', 'passionnée de code'];
+const words = ['développeuse', 'étudiante en MPI', 'passionnée de code'];
 
 let wordIndex  = 0;   // quel mot on affiche
 let charIndex  = 0;   // jusqu'à quel caractère on a tapé
