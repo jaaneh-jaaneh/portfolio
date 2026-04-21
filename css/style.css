@@ -464,16 +464,17 @@ header {
 
 #contact {
   padding: var(--space-20) 0;
-  background: var(--color-bg-dark);
+  background: white;
+  color: var(--color-primary-dark);
 }
 
 #contact .section-title,
 #contact .section-subtitle {
-  color: var(--color-text-white);
+  color: var(--color-primary-dark);
 }
 
 #contact .section-subtitle {
-  color: rgba(242, 237, 231, 0.5);
+  color: var(--color-primary-dark);
 }
 
 .contact-grid {
@@ -499,18 +500,18 @@ header {
 .form-group label {
   font-size: var(--text-xs);
   font-weight: 600;
-  color: rgba(242, 237, 231, 0.5);
+  color: rgb(0, 0, 0);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
 .form-group input,
 .form-group textarea {
-  background: rgba(242, 237, 231, 0.06);
-  border: 1.5px solid rgba(242, 237, 231, 0.12);
+  background: rgba(242, 237, 231, 0.801);
+  border: 1.5px solid rgba(180, 174, 168, 0.722);
   border-radius: var(--radius-md);
   padding: var(--space-4);
-  color: var(--color-text-white);
+  color: var(--color-primary-dark);
   font-size: var(--text-base);
   transition: border-color var(--transition-fast);
   resize: vertical;
@@ -518,13 +519,13 @@ header {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(242, 237, 231, 0.25);
+  color: rgba(189, 186, 186, 0.841);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--color-primary-light);
+  border-color: var(--color-primary-dark);
 }
 
 /* Classe ajoutée par JS si le champ est invalide */
@@ -557,8 +558,8 @@ header {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-md);
-  background: rgba(201, 169, 138, 0.1);
-  border: 1px solid rgba(201, 169, 138, 0.2);
+  background: var(--color-primary-light);
+  border: 1px solid rgba(186, 182, 178, 0.898);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -575,12 +576,12 @@ header {
 .contact-item strong {
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-text-white);
+  color: var(--color-primary-dark);
 }
 
 .contact-item span {
   font-size: var(--text-sm);
-  color: rgba(242, 237, 231, 0.5);
+  color: rgba(197, 193, 188, 0.929);
 }
 
 
@@ -598,7 +599,7 @@ footer {
 
 footer p {
   font-size: var(--text-sm);
-  color: rgba(242, 237, 231, 0.3);
+  color: rgba(255, 255, 255, 0.608);
 }
 
 footer p span {
