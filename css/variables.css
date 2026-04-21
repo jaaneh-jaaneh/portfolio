@@ -112,7 +112,7 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: var(--space-12);
-  max-width: var(--container-max);
+  max-width: 1200px;
   margin: 0 auto;
 }
 

@@ -87,6 +87,8 @@ header {
   align-items: center;
   height: var(--nav-height);
   padding: 0 var(--space-8);
+  max-width: 1000px;
+  margin: 0 auto;
   background: var(--color-bg-dark);
   transition: background var(--transition-base),
               box-shadow var(--transition-base);
@@ -585,7 +587,7 @@ header {
 /* ── FOOTER ───────────────────────────────── */
 
 footer {
-  background: #141210;
+  background: #000000;
   padding: var(--space-8);
   text-align: center;
   display: flex;
@@ -699,4 +701,290 @@ footer p span {
 }
 .nav-burger.active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+}
+
+
+
+
+
+/* ============================================
+   MISES À JOUR VISUELLES
+   - Hero : fond beige clair + photo
+   - Navbar : transparente → marron au scroll
+   - Lumière, ombres, contrastes, bordures
+   ============================================ */
+
+
+/* ── NAVBAR TRANSPARENTE ──────────────────── */
+
+#navbar {
+  background: transparent;
+  box-shadow: none;
+}
+
+#navbar.scrolled {
+  background: rgba(30, 26, 23, 0.96);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+/* Logo et liens visibles sur fond clair */
+.nav-logo {
+  color: var(--color-primary-dark);
+}
+
+/* Quand on scrolle → texte blanc */
+#navbar.scrolled .nav-logo {
+  color: var(--color-text-white);
+}
+
+.nav-links a {
+  color: var(--color-primary-dark);
+}
+
+#navbar.scrolled .nav-links a {
+  color: rgba(242, 237, 231, 0.75);
+}
+
+#navbar.scrolled .nav-links a:hover {
+  color: var(--color-text-white);
+}
+
+.nav-burger span {
+  background: var(--color-primary-dark);
+}
+
+#navbar.scrolled .nav-burger span {
+  background: var(--color-text-white);
+}
+
+
+/* ── HERO REFONTE ─────────────────────────── */
+
+#hero {
+  background: var(--color-bg);        /* beige clair */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Supprime le blob sombre précédent */
+#hero::before {
+  background: var(--color-primary-light);
+  opacity: 0.12;
+  top: -150px;
+  right: -100px;
+}
+
+/* Deuxième blob décoratif en bas à gauche */
+#hero::after {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0.06;
+  filter: blur(70px);
+  bottom: -80px;
+  left: -80px;
+  pointer-events: none;
+}
+
+/* Texte hero sur fond clair = couleur foncée */
+.hero-content h1 {
+  color: var(--color-primary-dark);
+}
+
+.hero-tag {
+  background: rgba(107, 76, 53, 0.08);
+  color: var(--color-primary);
+  border-color: rgba(107, 76, 53, 0.2);
+}
+
+.hero-desc {
+  color: var(--color-text-light);
+}
+
+/* Bouton outline adapté au fond clair */
+.btn-outline {
+  color: var(--color-primary-dark);
+  border-color: rgba(107, 76, 53, 0.35);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(107, 76, 53, 0.05);
+}
+
+
+/* ── PHOTO HERO ───────────────────────────── */
+
+.hero-img-wrapper {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  margin: 0 auto;
+
+  /* Animation de flottement héritée */
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Cercle de fond avec dégradé */
+.hero-img-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;                           /* couvre tout le wrapper */
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    var(--color-primary-light),
+    var(--color-primary)
+  );
+  opacity: 0.15;
+  z-index: 0;
+}
+
+/* Bordure décorative animée */
+.hero-img-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary-light);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* Halo lumineux derrière la photo */
+.hero-img-wrapper img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  filter: drop-shadow(0 20px 40px rgba(107, 76, 53, 0.25));
+}
+
+
+/* ── SECTIONS — LUMIÈRE & CONTRASTE ──────── */
+
+/* Ligne de séparation subtile entre sections */
+#about,
+#projects {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Accent coloré sur les titres de section */
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  border-radius: var(--radius-full);
+}
+
+/* Cartes projets — ombre + bordure subtile */
+.project-card {
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.project-card:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Stat cards — effet de lumière interne */
+.stat-item {
+  background: var(--color-bg-dark);
+  border: 1px solid rgba(201, 169, 138, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05),
+              var(--shadow-md);
+}
+
+/* Skills section — fond avec légère texture */
+#skills {
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Barre de compétence — ombre sous la barre */
+.skill-bar {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Contact section — ligne lumineuse en haut */
+#contact {
+  border-top: 1px solid rgba(201, 169, 138, 0.2);
+  box-shadow: inset 0 1px 0 rgba(201, 169, 138, 0.1);
+}
+
+/* Inputs — focus avec halo lumineux */
+.form-group input:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(201, 169, 138, 0.15);
+}
+
+/* Footer — séparation lumineuse */
+footer {
+  border-top: 1px solid rgba(201, 169, 138, 0.1);
+}
+
+
+/* ── RESPONSIVE PHOTO ─────────────────────── */
+
+@media (max-width: 768px) {
+  .hero-img-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+
+/* ── CORRECTIONS ──────────────────────────── */
+
+/* Navbar vraiment transparente */
+header {
+  background: transparent !important;
+}
+
+#navbar {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Photo — rectangle arrondi au lieu de cercle */
+.hero-img-wrapper {
+  width: 340px;
+  height: 500px;
+  border-radius: var(--radius-lg);
+}
+
+.hero-img-wrapper::before {
+  border-radius: var(--radius-lg);
+}
+
+.hero-img-wrapper::after {
+  border-radius: var(--radius-lg);
+}
+
+.hero-img-wrapper img {
+  border-radius: var(--radius-lg);
+  object-position: center;
 }
